@@ -26,7 +26,7 @@
 import StoreKit
 import Foundation
 
-class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
+class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate, InAppRequest {
 
     enum ResultType {
         case success
@@ -34,9 +34,9 @@ class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
     }
 
     typealias RequestCallback = (ResultType) -> Void
-    typealias ReceiptRefresh = (_ receiptProperties: [String : Any]?, _ callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest
+    typealias ReceiptRefresh = (_ receiptProperties: [String: Any]?, _ callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest
 
-    class func refresh(_ receiptProperties: [String : Any]? = nil, callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest {
+    class func refresh(_ receiptProperties: [String: Any]? = nil, callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest {
         let request = InAppReceiptRefreshRequest(receiptProperties: receiptProperties, callback: callback)
         request.start()
         return request
@@ -49,7 +49,7 @@ class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
         refreshReceiptRequest.delegate = nil
     }
 
-    init(receiptProperties: [String : Any]? = nil, callback: @escaping RequestCallback) {
+    init(receiptProperties: [String: Any]? = nil, callback: @escaping RequestCallback) {
         self.callback = callback
         self.refreshReceiptRequest = SKReceiptRefreshRequest(receiptProperties: receiptProperties)
         super.init()
@@ -60,6 +60,10 @@ class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
         self.refreshReceiptRequest.start()
     }
 
+    func cancel() {
+        self.refreshReceiptRequest.cancel()
+    }
+    
     func requestDidFinish(_ request: SKRequest) {
         /*if let resoreRequest = request as? SKReceiptRefreshRequest {
          let receiptProperties = resoreRequest.receiptProperties ?? [:]

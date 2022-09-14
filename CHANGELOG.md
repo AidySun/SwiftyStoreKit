@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+* Make `ProductsInfoController`'s `retrieveProductsInfo` thread safe ([#405]https://github.com/bizz84/SwiftyStoreKit/pull/495), related issues: [#344](https://github.com/bizz84/SwiftyStoreKit/issues/344) and [#468](https://github.com/bizz84/SwiftyStoreKit/issues/468)
+
+## [0.15.0](https://github.com/bizz84/SwiftyStoreKit/releases/tag/0.15.0) Update project to Swift 5, Xcode 10.2
+
+* Update project to Swift 5 ([#457](https://github.com/bizz84/SwiftyStoreKit/pull/457)), related issue: [#456](https://github.com/bizz84/SwiftyStoreKit/issues/456)
+* Add basic SwiftPM manifest file ([#460](https://github.com/bizz84/SwiftyStoreKit/pull/460))
+
+## [0.14.2](https://github.com/bizz84/SwiftyStoreKit/releases/tag/0.14.2) Remove `canMakePayments` check on purchase method
+
+* Remove `canMakePayments` check on purchase method ([#434](https://github.com/bizz84/SwiftyStoreKit/pull/434))
+
+## [0.14.1](https://github.com/bizz84/SwiftyStoreKit/releases/tag/0.14.1) Add missing `else` condition in `SwiftyStoreKit.purchaseProduct`
+
+* Add missing `else` condition in `SwiftyStoreKit.purchaseProduct` ([#426](https://github.com/bizz84/SwiftyStoreKit/pull/426))
+
+## [0.14.0](https://github.com/bizz84/SwiftyStoreKit/releases/tag/0.14.0) Add `isInIntroOfferPeriod` property, update project to Swift 4.2, Xcode 10
+
+* Added new property `isInIntroOfferPeriod` to ReceiptItem ([#404](https://github.com/bizz84/SwiftyStoreKit/pull/404), [#409](https://github.com/bizz84/SwiftyStoreKit/pull/409))
+* Add Swift 4.2 Support ([#408](https://github.com/bizz84/SwiftyStoreKit/pull/408)), update project to Xcode 10 ([#410](https://github.com/bizz84/SwiftyStoreKit/pull/410))
+
 ## [0.13.3](https://github.com/bizz84/SwiftyStoreKit/releases/tag/0.13.3) Fix macOS compile error on Xcode 10.0 beta (10L176w)
 
 * Fix macOS compile error on Xcode 10.0 beta (10L176w) ([#381](https://github.com/bizz84/SwiftyStoreKit/pull/381), see [#380](https://github.com/bizz84/SwiftyStoreKit/issues/380))
